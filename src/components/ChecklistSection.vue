@@ -1,19 +1,16 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { useChecklist } from '../composables/useChecklist.js'
 
-const items = ref([
-  { text: 'Я понятно описал задачу',                  done: false },
-  { text: 'Я указал аудиторию',                       done: false },
-  { text: 'Я написал цель страницы',                  done: false },
-  { text: 'Я перечислил нужные блоки',                done: false },
-  { text: 'Я указал стиль',                           done: false },
-  { text: 'Я проверил текст',                         done: false },
-  { text: 'Я проверил страницу на телефоне',          done: false },
-  { text: 'Я понял, что можно улучшить во второй версии', done: false }
+const { items, doneCount, total, progress, reset } = useChecklist('vc:checklist', [
+  { text: 'Я понятно описал задачу' },
+  { text: 'Я указал аудиторию' },
+  { text: 'Я написал цель страницы' },
+  { text: 'Я перечислил нужные блоки' },
+  { text: 'Я указал стиль' },
+  { text: 'Я проверил текст' },
+  { text: 'Я проверил страницу на телефоне' },
+  { text: 'Я понял, что можно улучшить во второй версии' }
 ])
-
-const doneCount = computed(() => items.value.filter(i => i.done).length)
-const progress  = computed(() => (doneCount.value / items.value.length) * 100)
 </script>
 
 <template>
@@ -35,9 +32,13 @@ const progress  = computed(() => (doneCount.value / items.value.length) * 100)
           <div class="checklist-bar">
             <div :style="{ width: progress + '%' }"></div>
           </div>
-          <div class="checklist-count">
-            {{ doneCount }} / {{ items.length }}
-          </div>
+          <div class="checklist-count">{{ doneCount }} / {{ total }}</div>
+        </div>
+
+        <div class="checklist-actions">
+          <button class="btn btn-ghost btn-sm" @click="reset">
+            Сбросить прогресс
+          </button>
         </div>
       </div>
     </div>

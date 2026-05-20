@@ -374,6 +374,138 @@ footer {
   background: var(--bg);
 }
 
+/* ---------- CALLOUT (плашки 💡/📌/⚠️) ---------- */
+.callout {
+  display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: start;
+  background: var(--surface); border-radius: var(--radius);
+  padding: 18px 20px; margin-top: 24px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid var(--accent);
+}
+.callout-icon {
+  width: 36px; height: 36px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--accent-soft); font-size: 18px;
+}
+.callout-title { font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.callout-content { color: var(--text-soft); font-size: 14.5px; line-height: 1.6; }
+.callout--tip  { border-left-color: #f5c451; }
+.callout--tip  .callout-icon { background: #fff5d6; }
+.callout--info { border-left-color: var(--accent); }
+.callout--warn { border-left-color: var(--bad); }
+.callout--warn .callout-icon { background: #fde9e9; }
+
+/* ---------- РАСКРЫВАЮЩИЕСЯ ШАГИ ---------- */
+.step-body { display: flex; flex-direction: column; gap: 0; }
+.step-header {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 14px; padding: 0; border: none; background: none;
+  cursor: pointer; text-align: left; font-family: inherit; color: inherit;
+  width: 100%;
+}
+.step-header h3 { margin: 0 0 6px; }
+.step-header p  { margin: 0; }
+.step-caret {
+  flex-shrink: 0; color: var(--muted); font-size: 18px;
+  transition: transform .2s ease;
+  margin-top: 4px;
+}
+.step--open .step-caret { transform: rotate(180deg); color: var(--accent); }
+.step-substeps {
+  margin-top: 12px; padding: 14px 16px;
+  background: var(--accent-soft); border-radius: 12px;
+}
+.step-substeps ul { margin: 0; padding-left: 18px; }
+.step-substeps li {
+  margin-bottom: 6px; color: var(--text); font-size: 14.5px; line-height: 1.55;
+}
+.step-substeps li:last-child { margin-bottom: 0; }
+
+/* ---------- FAQ ---------- */
+.faq { display: grid; gap: 10px; max-width: 820px; margin: 0 auto; }
+.faq-item {
+  background: var(--surface); border-radius: var(--radius);
+  box-shadow: var(--shadow); overflow: hidden;
+  transition: box-shadow .2s ease;
+}
+.faq-item--open { box-shadow: var(--shadow-hover); }
+.faq-q {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 14px; width: 100%; padding: 18px 22px;
+  background: none; border: none; cursor: pointer;
+  font-family: inherit; font-size: 16px; font-weight: 600;
+  text-align: left; color: var(--text);
+}
+.faq-q:hover { color: var(--accent); }
+.faq-caret {
+  flex-shrink: 0; color: var(--muted); font-size: 18px;
+  transition: transform .2s ease;
+}
+.faq-item--open .faq-caret { transform: rotate(180deg); color: var(--accent); }
+.faq-a {
+  padding: 0 22px 20px;
+  color: var(--text-soft); font-size: 15px; line-height: 1.6;
+}
+
+/* ---------- ЧЕК-ЛИСТ — кнопка сброса ---------- */
+.checklist-actions {
+  margin-top: 14px; display: flex; justify-content: flex-end;
+}
+.btn-sm { padding: 8px 14px; font-size: 13px; }
+
+/* ---------- РЕСУРСЫ ---------- */
+.resources { display: grid; gap: 32px; }
+.resources-group-title {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 18px; margin: 0 0 14px;
+}
+.resources-group-icon {
+  font-size: 22px;
+  width: 36px; height: 36px; border-radius: 10px;
+  background: var(--accent-soft);
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.resources-list {
+  display: grid; gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.resource-link {
+  display: block; padding: 16px 18px;
+  background: var(--surface); border-radius: 14px;
+  box-shadow: var(--shadow);
+  text-decoration: none; color: inherit;
+  border: 1px solid transparent;
+  transition: transform .15s ease, box-shadow .2s ease, border-color .15s;
+}
+.resource-link:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--accent-soft);
+  text-decoration: none;
+}
+.resource-name {
+  font-weight: 700; color: var(--text); font-size: 15.5px;
+  display: flex; align-items: center; gap: 6px; margin-bottom: 4px;
+}
+.resource-ext { color: var(--muted); font-size: 13px; }
+.resource-link:hover .resource-ext { color: var(--accent); }
+.resource-text { color: var(--text-soft); font-size: 13.5px; line-height: 1.5; }
+
+/* ---------- КОНТАКТЫ ---------- */
+.contact-section { background: var(--bg-soft); }
+.contact-box {
+  max-width: 680px; margin: 0 auto; text-align: center;
+  background: var(--surface); border-radius: var(--radius-lg);
+  padding: 40px 32px; box-shadow: var(--shadow);
+}
+.contact-box h2 { margin-bottom: 12px; }
+.contact-box p { margin-bottom: 22px; }
+.contact-buttons {
+  display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.contact-note { color: var(--muted); font-size: 13.5px; margin: 0; }
+
 /* ---------- АДАПТИВ ---------- */
 @media (max-width: 860px) {
   .hero-grid,

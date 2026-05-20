@@ -48,19 +48,26 @@ vibecode-session/
     ├── App.vue                 ← корневой компонент, собирает секции
     ├── assets/
     │   └── main.css            ← глобальные стили и CSS-переменные
+    ├── composables/
+    │   └── useChecklist.js     ← reactive-чек-лист с автосохранением в localStorage
     └── components/
         ├── NavBar.vue
         ├── HeroSection.vue
+        ├── PreparationSection.vue   ← «Раздел 0»: чек-лист подготовки
         ├── WhatIsSection.vue
         ├── WhatToBuildSection.vue
         ├── ToolsSection.vue
         ├── PromptFormulaSection.vue
-        ├── StepsSection.vue
+        ├── StepsSection.vue          ← раскрывающиеся подшаги
         ├── MistakesSection.vue
         ├── PracticeSection.vue
-        ├── ChecklistSection.vue
+        ├── ChecklistSection.vue      ← прогресс хранится в localStorage
+        ├── FaqSection.vue            ← аккордеон с частыми вопросами
+        ├── ResourcesSection.vue      ← полезные ссылки и сервисы
+        ├── ContactSection.vue        ← блок «Напишите куратору» (placeholders!)
         ├── FinalSection.vue
         ├── AppFooter.vue
+        ├── CalloutBox.vue            ← переиспользуемая плашка 💡/📌/⚠️
         └── ToastNotification.vue
 ```
 
@@ -102,15 +109,22 @@ import './assets/main.css' // нужны общие CSS-переменные и 
 ## Что внутри страницы
 
 - **Hero** — заголовок, подзаголовок, CTA
+- **Подготовка (Раздел 0)** — интерактивный чек-лист «что нужно перед стартом»
 - **Что такое вайбкодинг?** — простое объяснение + пример «плохо/хорошо»
 - **Что можно создать?** — 6 карточек с типовыми идеями
 - **Инструменты** — ChatGPT, Claude, Replit, Lovable, Cursor
 - **Формула хорошего промпта** — 6 пунктов + готовый пример
-- **7 шагов для старта** — пошаговая инструкция
+- **7 шагов для старта** — раскрывающиеся блоки с подсказками
 - **Частые ошибки новичков** — с примерами «как правильно»
 - **Практика** — шаблон промпта с кнопкой «Скопировать»
-- **Чек-лист готовности** — интерактивный, с прогресс-баром
+- **Чек-лист готовности** — интерактивный, прогресс сохраняется в localStorage
+- **FAQ** — аккордеон с 7 типичными вопросами
+- **Ресурсы** — полезные сервисы для новичка (ИИ, сайты, дизайн, вдохновение)
+- **Контакты** — куда писать, если застряли (⚠ placeholder-контакты)
 - **Финальный CTA**
+
+> ⚠️ В `src/components/ContactSection.vue` ссылки на WhatsApp/Telegram/Email —
+> заглушки. Перед публикацией замените на реальные контакты куратора.
 
 ---
 

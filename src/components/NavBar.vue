@@ -5,11 +5,14 @@ const isOpen = ref(false)
 const scrollToSection = inject('scrollToSection')
 
 const links = [
-  { id: 'what',      label: 'Что это' },
-  { id: 'tools',     label: 'Инструменты' },
-  { id: 'steps',     label: 'Инструкция' },
-  { id: 'practice',  label: 'Практика' },
-  { id: 'checklist', label: 'Чек-лист' }
+  { id: 'preparation', label: 'Подготовка' },
+  { id: 'what',        label: 'Что это' },
+  { id: 'tools',       label: 'Инструменты' },
+  { id: 'steps',       label: 'Инструкция' },
+  { id: 'practice',    label: 'Практика' },
+  { id: 'checklist',   label: 'Чек-лист' },
+  { id: 'faq',         label: 'FAQ' },
+  { id: 'resources',   label: 'Ресурсы' }
 ]
 
 const handleClick = (id) => {

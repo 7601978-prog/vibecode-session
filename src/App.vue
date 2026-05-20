@@ -9,6 +9,7 @@ import { provide, ref } from 'vue'
 
 import NavBar from './components/NavBar.vue'
 import HeroSection from './components/HeroSection.vue'
+import PreparationSection from './components/PreparationSection.vue'
 import WhatIsSection from './components/WhatIsSection.vue'
 import WhatToBuildSection from './components/WhatToBuildSection.vue'
 import ToolsSection from './components/ToolsSection.vue'
@@ -17,15 +18,16 @@ import StepsSection from './components/StepsSection.vue'
 import MistakesSection from './components/MistakesSection.vue'
 import PracticeSection from './components/PracticeSection.vue'
 import ChecklistSection from './components/ChecklistSection.vue'
+import FaqSection from './components/FaqSection.vue'
+import ResourcesSection from './components/ResourcesSection.vue'
+import ContactSection from './components/ContactSection.vue'
 import FinalSection from './components/FinalSection.vue'
 import AppFooter from './components/AppFooter.vue'
 import ToastNotification from './components/ToastNotification.vue'
 
 const toast = ref(null)
-// Любой компонент может позвать: const showToast = inject('showToast')
 provide('showToast', (message) => toast.value?.show(message))
 
-// Плавный скролл к секции по id — пригодится в NavBar, Hero и Final
 const scrollToSection = (id) => {
   const el = document.getElementById(id)
   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -37,6 +39,7 @@ provide('scrollToSection', scrollToSection)
   <NavBar />
   <main>
     <HeroSection />
+    <PreparationSection />
     <WhatIsSection />
     <WhatToBuildSection />
     <ToolsSection />
@@ -45,6 +48,9 @@ provide('scrollToSection', scrollToSection)
     <MistakesSection />
     <PracticeSection />
     <ChecklistSection />
+    <FaqSection />
+    <ResourcesSection />
+    <ContactSection />
     <FinalSection />
   </main>
   <AppFooter />
