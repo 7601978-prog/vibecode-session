@@ -1,3 +1,10 @@
+# Зависимости и сборка
+node_modules/
+dist/
+dist-ssr/
+.vite/
+*.local
+
 # macOS
 .DS_Store
 .AppleDouble
@@ -12,6 +19,10 @@
 
 # Логи и временные файлы
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 *.tmp
 
 # Windows
