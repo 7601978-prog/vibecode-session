@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Вайбкодинг для сотрудников без опыта</title>
+  <style>
+    /* ---------- БАЗА ---------- */
+    *, *::before, *::after { box-sizing: border-box; }
+    :root {
+      --bg: #f7f8fc;
+      --bg-soft: #eef0fb;
+      --surface: #ffffff;
+      --text: #1a1c2b;
+      --text-soft: #4b4f63;
+      --muted: #7a7f95;
+      --accent: #6a5cff;        /* фиолетово-синий акцент */
+      --accent-2: #4a8bff;
+      --accent-soft: #ece9ff;
+      --good: #1f9d6b;
+      --bad: #e35d5b;
+      --border: #e5e7f3;
+      --shadow: 0 8px 30px rgba(40, 45, 90, 0.06);
+      --shadow-hover: 0 14px 40px rgba(40, 45, 90, 0.12);
+      --radius: 18px;
+      --radius-lg: 24px;
+      --maxw: 1120px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "SF Pro Text",
+                   "Inter", "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    h1, h2, h3 { color: var(--text); letter-spacing: -0.01em; margin: 0 0 16px; }
+    h1 { font-size: clamp(34px, 5vw, 56px); line-height: 1.1; font-weight: 800; }
+    h2 { font-size: clamp(26px, 3.5vw, 38px); font-weight: 700; }
+    h3 { font-size: 19px; font-weight: 600; }
+    p  { margin: 0 0 14px; color: var(--text-soft); }
+
+    .container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+    section { padding: 80px 0; }
+    section:nth-of-type(even) { background: var(--bg-soft); }
+
+    /* ---------- ВЕРХНЕЕ МЕНЮ ---------- */
+    .nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(247, 248, 252, 0.85);
+      backdrop-filter: saturate(180%) blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: var(--maxw); margin: 0 auto;
+      padding: 14px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px;
+    }
+    .logo {
+      font-weight: 800; font-size: 18px; color: var(--text);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .logo-dot {
+      width: 22px; height: 22px; border-radius: 7px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    }
+    .nav-links { display: flex; gap: 6px; flex-wrap: wrap; }
+    .nav-links a {
+      color: var(--text-soft); padding: 8px 12px; border-radius: 10px;
+      font-size: 14px; font-weight: 500;
+    }
+    .nav-links a:hover { background: var(--accent-soft); color: var(--accent); text-decoration: none; }
+    .nav-burger { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .nav-burger span {
+      display: block; width: 22px; height: 2px; background: var(--text); margin: 4px 0; border-radius: 2px;
+    }
+
+    /* ---------- КНОПКИ ---------- */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 24px; border-radius: 12px; font-weight: 600; font-size: 15px;
+      cursor: pointer; border: none; transition: transform .15s ease, box-shadow .2s ease, background .2s;
+      font-family: inherit;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(106, 92, 255, 0.35);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(106, 92, 255, 0.45); }
+    .btn-ghost {
+      background: var(--surface); color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover { background: var(--accent-soft); color: var(--accent); border-color: transparent; }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      padding: 100px 0 90px;
+      background:
+        radial-gradient(900px 400px at 80% 0%, rgba(106, 92, 255, 0.12), transparent 60%),
+        radial-gradient(700px 350px at 10% 100%, rgba(74, 139, 255, 0.10), transparent 60%),
+        var(--bg);
+    }
+    .hero-grid {
+      display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px; align-items: center;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent-soft); color: var(--accent);
+      padding: 8px 14px; border-radius: 999px; font-size: 13px; font-weight: 600;
+      margin-bottom: 22px;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
+    .hero-quote {
+      margin-top: 28px; padding: 18px 22px;
+      background: var(--surface); border-radius: var(--radius);
+      border-left: 4px solid var(--accent);
+      color: var(--text); font-weight: 500;
+      box-shadow: var(--shadow);
+    }
+
+    /* Иллюстрация: «карточка с промптом» */
+    .hero-card {
+      background: var(--surface); border-radius: var(--radius-lg);
+      box-shadow: var(--shadow); padding: 24px;
+      transform: rotate(-1deg);
+    }
+    .hero-card .chrome {
+      display: flex; gap: 6px; margin-bottom: 14px;
+    }
+    .hero-card .chrome span {
+      width: 12px; height: 12px; border-radius: 50%; background: var(--border);
+    }
+    .hero-card .chrome span:nth-child(1) { background: #ff6b6b; }
+    .hero-card .chrome span:nth-child(2) { background: #ffd166; }
+    .hero-card .chrome span:nth-child(3) { background: #06d6a0; }
+    .hero-card .msg { padding: 12px 14px; border-radius: 12px; font-size: 14px; margin-bottom: 10px; }
+    .hero-card .msg.user { background: var(--accent-soft); color: var(--text); }
+    .hero-card .msg.ai { background: var(--bg-soft); color: var(--text-soft); }
+    .hero-card .typing { display: inline-flex; gap: 4px; }
+    .hero-card .typing i {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--muted);
+      animation: blink 1.2s infinite ease-in-out;
+    }
+    .hero-card .typing i:nth-child(2) { animation-delay: .2s; }
+    .hero-card .typing i:nth-child(3) { animation-delay: .4s; }
+    @keyframes blink {
+      0%, 80%, 100% { opacity: .3; }
+      40% { opacity: 1; }
+    }
+
+    /* ---------- ОБЩИЕ СЕКЦИИ ---------- */
+    .section-head { max-width: 760px; margin-bottom: 40px; }
+    .section-head .kicker {
+      color: var(--accent); font-weight: 700; font-size: 13px;
+      text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px;
+    }
+
+    /* ---------- ПРИМЕР ПРОМПТА (плохо/хорошо) ---------- */
+    .compare {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    }
+    .compare-card {
+      background: var(--surface); border-radius: var(--radius);
+      padding: 24px; box-shadow: var(--shadow);
+      border-top: 4px solid var(--bad);
+    }
+    .compare-card.good { border-top-color: var(--good); }
+    .compare-card .tag {
+      display: inline-block; padding: 4px 10px; border-radius: 6px;
+      font-size: 12px; font-weight: 700; margin-bottom: 10px;
+      background: #fde9e9; color: var(--bad);
+    }
+    .compare-card.good .tag { background: #e7f6ee; color: var(--good); }
+    .compare-card .quote {
+      font-size: 16px; color: var(--text); font-style: italic;
+    }
+
+    /* ---------- КАРТОЧКИ-СЕТКА ---------- */
+    .grid {
+      display: grid; gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+    .card {
+      background: var(--surface); border-radius: var(--radius);
+      padding: 24px; box-shadow: var(--shadow);
+      transition: transform .15s ease, box-shadow .2s ease;
+      border: 1px solid transparent;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); border-color: var(--accent-soft); }
+    .card .ico {
+      width: 44px; height: 44px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--accent-soft); color: var(--accent);
+      font-weight: 800; margin-bottom: 14px; font-size: 20px;
+    }
+    .card p { margin: 0; font-size: 14.5px; }
+    .card .tool-name {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 8px;
+    }
+    .card .tool-name h3 { margin: 0; }
+    .card .tool-tag {
+      font-size: 12px; color: var(--muted); background: var(--bg-soft);
+      padding: 3px 8px; border-radius: 6px;
+    }
+
+    .tools-note {
+      margin-top: 24px; padding: 16px 20px; background: var(--surface);
+      border-radius: var(--radius); border: 1px dashed var(--accent);
+      color: var(--text-soft); font-size: 14.5px;
+    }
+
+    /* ---------- ФОРМУЛА ПРОМПТА ---------- */
+    .formula {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start;
+    }
+    .formula-list {
+      list-style: none; padding: 0; margin: 0;
+      display: grid; gap: 12px;
+    }
+    .formula-list li {
+      display: flex; gap: 14px; align-items: flex-start;
+      background: var(--surface); padding: 16px; border-radius: 14px;
+      box-shadow: var(--shadow);
+    }
+    .formula-list .num {
+      flex: 0 0 36px; height: 36px; border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #fff; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .prompt-example {
+      background: #1c1f3a; color: #e6e7ff;
+      border-radius: var(--radius); padding: 24px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 14px; line-height: 1.7;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+    .prompt-example::before {
+      content: "Пример хорошего промпта";
+      display: block;
+      color: #aab0ff;
+      font-family: -apple-system, "Inter", sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    /* ---------- ШАГИ ---------- */
+    .steps { display: grid; gap: 14px; }
+    .step {
+      background: var(--surface); border-radius: var(--radius);
+      padding: 22px; box-shadow: var(--shadow);
+      display: grid; grid-template-columns: 60px 1fr; gap: 18px; align-items: start;
+    }
+    .step-num {
+      width: 48px; height: 48px; border-radius: 14px;
+      background: var(--accent-soft); color: var(--accent);
+      font-weight: 800; font-size: 18px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .step h3 { margin: 0 0 6px; }
+    .step .example {
+      margin-top: 10px; padding: 10px 14px;
+      background: var(--bg-soft); border-radius: 10px;
+      font-size: 14px; color: var(--text-soft);
+    }
+    .step .example b { color: var(--accent); }
+
+    /* ---------- ОШИБКИ ---------- */
+    .mistake {
+      background: var(--surface); border-radius: var(--radius);
+      padding: 22px; box-shadow: var(--shadow);
+      border-left: 4px solid var(--bad);
+    }
+    .mistake h3 { color: var(--bad); }
+    .mistake .right {
+      margin-top: 10px; padding: 10px 14px;
+      background: #e7f6ee; border-radius: 10px;
+      font-size: 14px; color: #1a5a3f;
+    }
+    .mistake .right b { color: var(--good); }
+
+    /* ---------- ПРАКТИКА ---------- */
+    .practice-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start;
+    }
+    .template-box {
+      background: var(--surface); border-radius: var(--radius);
+      padding: 24px; box-shadow: var(--shadow);
+    }
+    .template-box textarea {
+      width: 100%; min-height: 280px;
+      padding: 16px; border-radius: 12px;
+      border: 1px solid var(--border);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 14px; line-height: 1.7;
+      color: var(--text); background: var(--bg);
+      resize: vertical;
+    }
+    .template-box textarea:focus {
+      outline: none; border-color: var(--accent); background: #fff;
+    }
+    .template-actions { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+
+    /* ---------- ЧЕК-ЛИСТ ---------- */
+    .checklist {
+      background: var(--surface); border-radius: var(--radius-lg);
+      padding: 32px; box-shadow: var(--shadow);
+      max-width: 720px; margin: 0 auto;
+    }
+    .checklist label {
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 16px; border-radius: 12px;
+      cursor: pointer; transition: background .15s;
+      font-size: 16px;
+    }
+    .checklist label:hover { background: var(--bg-soft); }
+    .checklist input[type="checkbox"] {
+      appearance: none; -webkit-appearance: none;
+      width: 22px; height: 22px; border-radius: 6px;
+      border: 2px solid var(--border); cursor: pointer;
+      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      transition: all .15s;
+    }
+    .checklist input[type="checkbox"]:checked {
+      background: var(--accent); border-color: var(--accent);
+    }
+    .checklist input[type="checkbox"]:checked::after {
+      content: "✓"; color: #fff; font-weight: 700; font-size: 14px;
+    }
+    .checklist input[type="checkbox"]:checked + span {
+      text-decoration: line-through; color: var(--muted);
+    }
+    .checklist-progress {
+      margin-top: 18px; display: flex; align-items: center; gap: 12px;
+    }
+    .checklist-bar {
+      flex: 1; height: 8px; background: var(--bg-soft); border-radius: 999px; overflow: hidden;
+    }
+    .checklist-bar > div {
+      height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      width: 0%; transition: width .3s ease;
+    }
+    .checklist-count { font-weight: 700; color: var(--accent); font-size: 14px; }
+
+    /* ---------- ФИНАЛ ---------- */
+    .final {
+      background:
+        radial-gradient(800px 400px at 50% 0%, rgba(106, 92, 255, 0.15), transparent 60%),
+        var(--bg);
+      text-align: center;
+    }
+    .final h2 { font-size: clamp(30px, 4vw, 44px); }
+    .final p { font-size: 17px; max-width: 660px; margin: 0 auto 28px; }
+
+    /* ---------- УВЕДОМЛЕНИЕ ---------- */
+    .toast {
+      position: fixed; bottom: 24px; left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--text); color: #fff;
+      padding: 14px 22px; border-radius: 12px;
+      font-weight: 600; font-size: 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      opacity: 0; pointer-events: none;
+      transition: opacity .25s ease, transform .25s ease;
+      z-index: 100;
+      display: inline-flex; align-items: center; gap: 10px;
+    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+    .toast::before {
+      content: "✓"; display: inline-flex; align-items: center; justify-content: center;
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--good); font-weight: 800;
+    }
+
+    /* ---------- ПОДВАЛ ---------- */
+    footer {
+      padding: 30px 0; text-align: center;
+      color: var(--muted); font-size: 14px;
+      border-top: 1px solid var(--border);
+      background: var(--bg);
+    }
+
+    /* ---------- АДАПТИВ ---------- */
+    @media (max-width: 860px) {
+      .hero-grid,
+      .formula,
+      .practice-grid { grid-template-columns: 1fr; }
+      .compare { grid-template-columns: 1fr; }
+      .hero-card { transform: none; }
+      .nav-links {
+        display: none; position: absolute; top: 60px; left: 0; right: 0;
+        flex-direction: column; background: var(--surface);
+        padding: 14px; border-bottom: 1px solid var(--border);
+        box-shadow: var(--shadow);
+      }
+      .nav-links.open { display: flex; }
+      .nav-burger { display: block; }
+      section { padding: 60px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============== ВЕРХНЕЕ МЕНЮ ============== -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="logo">
+        <div class="logo-dot"></div>
+        Вайбкодинг
+      </div>
+      <button class="nav-burger" aria-label="Меню" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="#what">Что это</a>
+        <a href="#tools">Инструменты</a>
+        <a href="#steps">Инструкция</a>
+        <a href="#practice">Практика</a>
+        <a href="#checklist">Чек-лист</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============== HERO ============== -->
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-eyebrow">✨ Для сотрудников без технического опыта</div>
+        <h1>Вайбкодинг для сотрудников без опыта</h1>
+        <p style="font-size: 18px; max-width: 540px;">
+          Научитесь создавать простые цифровые решения с помощью ИИ,
+          даже если вы никогда не писали код.
+        </p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" onclick="scrollTo('steps')">Начать обучение →</button>
+          <button class="btn btn-ghost" onclick="scrollTo('what')">Что такое вайбкодинг?</button>
+        </div>
+        <div class="hero-quote">
+          💡 Главный навык — не программирование, а умение понятно объяснить задачу.
+        </div>
+      </div>
+
+      <!-- Декоративная карточка чата с ИИ -->
+      <div class="hero-card" aria-hidden="true">
+        <div class="chrome"><span></span><span></span><span></span></div>
+        <div class="msg user">Создай страницу для обучения сотрудников</div>
+        <div class="msg ai">Готово! Добавил 7 шагов, чек-лист и блок с практикой.</div>
+        <div class="msg ai"><span class="typing"><i></i><i></i><i></i></span></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============== 2. ЧТО ТАКОЕ ВАЙБКОДИНГ ============== -->
+  <section id="what">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Простыми словами</div>
+        <h2>Что такое вайбкодинг?</h2>
+        <p style="font-size: 17px;">
+          Вайбкодинг — это способ создавать сайты, приложения, инструкции, формы и прототипы
+          с помощью ИИ. Человек описывает идею обычным языком, а ИИ помогает собрать первый
+          рабочий вариант. Вам не нужно знать код — только уметь ясно описать, что вы хотите.
+        </p>
+      </div>
+
+      <div class="compare">
+        <div class="compare-card">
+          <div class="tag">Плохо</div>
+          <h3 style="margin-top: 0;">Слишком общий запрос</h3>
+          <div class="quote">«Сделай сайт»</div>
+        </div>
+        <div class="compare-card good">
+          <div class="tag">Хорошо</div>
+          <h3 style="margin-top: 0;">Конкретный запрос с деталями</h3>
+          <div class="quote">
+            «Создай одностраничный сайт для обучения сотрудников. На странице должны быть
+            вводная инструкция, 5 шагов обучения, пример промпта и кнопка для скачивания чек-листа».
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== 3. ЧТО МОЖНО СОЗДАТЬ ============== -->
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Возможности</div>
+        <h2>Что можно создать с помощью вайбкодинга?</h2>
+        <p>Шесть направлений, с которых проще всего начать в любой компании.</p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div class="ico">📘</div>
+          <h3>Инструкцию для сотрудников</h3>
+          <p>Понятный документ или мини-сайт для онбординга, регламентов и обучения новичков.</p>
+        </div>
+        <div class="card">
+          <div class="ico">🌐</div>
+          <h3>Простой сайт</h3>
+          <p>Лендинг для проекта, мероприятия или продукта — за пару часов вместо нескольких недель.</p>
+        </div>
+        <div class="card">
+          <div class="ico">📝</div>
+          <h3>Форму сбора заявок</h3>
+          <p>Анкета для клиентов, опрос для команды, заявка на отпуск — без участия IT.</p>
+        </div>
+        <div class="card">
+          <div class="ico">🧩</div>
+          <h3>Прототип сервиса</h3>
+          <p>Быстрая «черновая» версия идеи, которую можно показать коллегам и собрать обратную связь.</p>
+        </div>
+        <div class="card">
+          <div class="ico">🤖</div>
+          <h3>Внутреннего помощника</h3>
+          <p>Чат-бот или ассистент, который отвечает на типовые вопросы сотрудников и клиентов.</p>
+        </div>
+        <div class="card">
+          <div class="ico">📊</div>
+          <h3>Дашборд или отчёт</h3>
+          <p>Удобная визуализация данных команды, продаж или прогресса проекта.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== 4. ИНСТРУМЕНТЫ ============== -->
+  <section id="tools">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Стек на старте</div>
+        <h2>Какие инструменты использовать?</h2>
+        <p>Не нужно осваивать всё сразу. Начните с одного-двух — этого хватит для первых проектов.</p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div class="tool-name">
+            <h3>ChatGPT</h3>
+            <span class="tool-tag">идеи и тексты</span>
+          </div>
+          <p>Подходит для генерации идей, структуры, текстов и составления промптов.</p>
+        </div>
+        <div class="card">
+          <div class="tool-name">
+            <h3>Claude</h3>
+            <span class="tool-tag">анализ и инструкции</span>
+          </div>
+          <p>Хорошо работает с большими текстами, аналитикой и подробными инструкциями.</p>
+        </div>
+        <div class="card">
+          <div class="tool-name">
+            <h3>Replit</h3>
+            <span class="tool-tag">простые сайты</span>
+          </div>
+          <p>Создание простых сайтов и веб-приложений прямо в браузере, без установки.</p>
+        </div>
+        <div class="card">
+          <div class="tool-name">
+            <h3>Lovable</h3>
+            <span class="tool-tag">красивый UI</span>
+          </div>
+          <p>Быстрое создание аккуратных интерфейсов — описали идею и получили готовый макет.</p>
+        </div>
+        <div class="card">
+          <div class="tool-name">
+            <h3>Cursor</h3>
+            <span class="tool-tag">когда проект растёт</span>
+          </div>
+          <p>Удобный AI-редактор для работы с кодом, когда проект становится сложнее.</p>
+        </div>
+      </div>
+
+      <div class="tools-note">
+        💡 <b>На первом этапе достаточно ChatGPT или Claude</b> и одного инструмента для создания
+        сайта, например Replit или Lovable.
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== 5. ГЛАВНЫЙ НАВЫК ============== -->
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Главный навык</div>
+        <h2>Правильно ставить задачу</h2>
+        <p>Качество результата на 90% зависит от того, насколько чётко вы сформулировали запрос.</p>
+      </div>
+
+      <div class="formula">
+        <ol class="formula-list">
+          <li><div class="num">1</div><div><b>Что нужно создать.</b> Сайт, форма, инструкция, бот.</div></li>
+          <li><div class="num">2</div><div><b>Для кого.</b> Кто будет это использовать.</div></li>
+          <li><div class="num">3</div><div><b>Какая цель.</b> Какую задачу решает результат.</div></li>
+          <li><div class="num">4</div><div><b>Какие блоки должны быть.</b> Перечень разделов или функций.</div></li>
+          <li><div class="num">5</div><div><b>Какой стиль нужен.</b> Деловой, дружелюбный, минималистичный.</div></li>
+          <li><div class="num">6</div><div><b>Что должно получиться в результате.</b> Формат и итог.</div></li>
+        </ol>
+
+        <div class="prompt-example">
+Создай одностраничный сайт для обучения новых сотрудников отдела продаж.
+
+Аудитория: менеджеры, которые впервые работают с CRM.
+Цель: за 15 минут познакомить их с базовыми правилами работы.
+
+Блоки:
+— Приветствие и цели обучения
+— 5 шагов работы с клиентом
+— Чек-лист ежедневных задач
+— Контакты наставника
+
+Стиль: дружелюбный, спокойный, корпоративный.
+Результат: один HTML-файл, адаптивный для телефона.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== 6. 7 ШАГОВ ============== -->
+  <section id="steps">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Пошагово</div>
+        <h2>7 шагов для старта</h2>
+        <p>Этот алгоритм подходит для любого первого проекта — от инструкции до прототипа сервиса.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>
+            <h3>Определите задачу</h3>
+            <p>Одной фразой опишите, что именно вы хотите получить.</p>
+            <div class="example"><b>Пример:</b> «Хочу страницу для обучения новых сотрудников склада».</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>
+            <h3>Опишите аудиторию</h3>
+            <p>Кто будет читать или использовать результат — и что они уже знают.</p>
+            <div class="example"><b>Пример:</b> «Новые кладовщики, без опыта работы с нашим складом».</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div>
+            <h3>Опишите структуру</h3>
+            <p>Перечислите блоки, которые точно должны быть на странице.</p>
+            <div class="example"><b>Пример:</b> «Приветствие, 5 правил безопасности, расписание, контакты руководителя».</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div>
+            <h3>Попросите ИИ создать первый вариант</h3>
+            <p>Скопируйте свой запрос в ChatGPT или Claude и получите первую версию.</p>
+            <div class="example"><b>Пример:</b> «Собери всё это в один HTML-файл, который я смогу открыть в браузере».</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <div>
+            <h3>Проверьте результат</h3>
+            <p>Откройте страницу, прочитайте текст, проверьте на телефоне.</p>
+            <div class="example"><b>Пример:</b> «Удобно ли читать? Понятна ли структура? Нет ли лишнего?»</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">6</div>
+          <div>
+            <h3>Дайте уточнение</h3>
+            <p>Скажите ИИ, что поменять — текстом, без сложных терминов.</p>
+            <div class="example"><b>Пример:</b> «Сделай заголовки крупнее и добавь блок с частыми ошибками».</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">7</div>
+          <div>
+            <h3>Сохраните и покажите коллегам</h3>
+            <p>Покажите результат команде и соберите обратную связь — это часть процесса.</p>
+            <div class="example"><b>Пример:</b> «Отправил в общий чат — собрал 3 правки и обновил вторую версию».</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== 7. ЧАСТЫЕ ОШИБКИ ============== -->
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Аккуратнее</div>
+        <h2>Частые ошибки новичков</h2>
+        <p>Эти грабли проходят почти все. Зная их заранее, можно сэкономить несколько часов.</p>
+      </div>
+
+      <div class="grid">
+        <div class="mistake">
+          <h3>Слишком короткий запрос</h3>
+          <p>«Сделай сайт» — ИИ не знает, какой именно. Результат будет шаблонным.</p>
+          <div class="right"><b>Как правильно:</b> добавьте тему, аудиторию, блоки и цель.</div>
+        </div>
+        <div class="mistake">
+          <h3>Нет описания аудитории</h3>
+          <p>Без понимания, для кого делается страница, тон и сложность будут «средние ни для кого».</p>
+          <div class="right"><b>Как правильно:</b> «Для новых сотрудников отдела продаж, без опыта в CRM».</div>
+        </div>
+        <div class="mistake">
+          <h3>Нет структуры</h3>
+          <p>ИИ придумает структуру сам — и она может не совпасть с тем, что вам нужно.</p>
+          <div class="right"><b>Как правильно:</b> перечислите блоки списком: «1. Приветствие, 2. Шаги, 3. Чек-лист».</div>
+        </div>
+        <div class="mistake">
+          <h3>Ожидание идеала с первого раза</h3>
+          <p>Первый вариант почти всегда черновой. Это нормально и не значит, что ничего не получится.</p>
+          <div class="right"><b>Как правильно:</b> воспринимайте первую версию как заготовку и дорабатывайте её итерациями.</div>
+        </div>
+        <div class="mistake">
+          <h3>Нет проверки результата</h3>
+          <p>Опубликовать без проверки — самый быстрый способ получить ошибку прямо у коллеги в чате.</p>
+          <div class="right"><b>Как правильно:</b> откройте страницу в браузере и на телефоне, прочитайте текст вслух.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== 8. ПРАКТИКА ============== -->
+  <section id="practice">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Ваш ход</div>
+        <h2>Практика</h2>
+        <p>
+          Создайте свою первую страницу на одну из тем: инструкция для нового сотрудника,
+          страница проекта, форма сбора идей, инструкция по процессу, страница обучения для команды.
+        </p>
+      </div>
+
+      <div class="practice-grid">
+        <div>
+          <h3 style="margin-bottom: 10px;">Шаблон промпта</h3>
+          <p>
+            Скопируйте шаблон, заполните его своими словами и отправьте в ChatGPT или Claude.
+            Это самый простой способ получить первый рабочий вариант.
+          </p>
+          <p style="font-size: 14px; color: var(--muted);">
+            Совет: чем подробнее опишете аудиторию и блоки — тем точнее будет результат.
+          </p>
+        </div>
+
+        <div class="template-box">
+          <textarea id="promptTemplate" spellcheck="false">Я хочу создать:
+
+Для кого:
+
+Цель страницы:
+
+Какие блоки нужны:
+
+Какой стиль:
+
+Что должно быть в результате:</textarea>
+          <div class="template-actions">
+            <button class="btn btn-primary" onclick="copyTemplate()">📋 Скопировать шаблон промпта</button>
+            <button class="btn btn-ghost" onclick="resetTemplate()">Сбросить</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== 9. ЧЕК-ЛИСТ ============== -->
+  <section id="checklist">
+    <div class="container">
+      <div class="section-head" style="text-align: center; margin-left: auto; margin-right: auto;">
+        <div class="kicker">Перед запуском</div>
+        <h2>Чек-лист готовности</h2>
+        <p>Пробегитесь по списку перед тем, как показать страницу коллегам.</p>
+      </div>
+
+      <div class="checklist" id="checklistBox">
+        <label><input type="checkbox"><span>Я понятно описал задачу</span></label>
+        <label><input type="checkbox"><span>Я указал аудиторию</span></label>
+        <label><input type="checkbox"><span>Я написал цель страницы</span></label>
+        <label><input type="checkbox"><span>Я перечислил нужные блоки</span></label>
+        <label><input type="checkbox"><span>Я указал стиль</span></label>
+        <label><input type="checkbox"><span>Я проверил текст</span></label>
+        <label><input type="checkbox"><span>Я проверил страницу на телефоне</span></label>
+        <label><input type="checkbox"><span>Я понял, что можно улучшить во второй версии</span></label>
+
+        <div class="checklist-progress">
+          <div class="checklist-bar"><div id="checklistBar"></div></div>
+          <div class="checklist-count" id="checklistCount">0 / 8</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== 10. ФИНАЛ ============== -->
+  <section class="final">
+    <div class="container">
+      <h2>Вы уже можете начать</h2>
+      <p>
+        Вайбкодинг — это не про умение писать код. Это про умение ясно думать,
+        описывать задачу и управлять результатом. Первый вариант может быть неидеальным,
+        но именно с него начинается навык создания цифровых решений.
+      </p>
+      <button class="btn btn-primary" onclick="scrollTo('practice')">Создать первый промпт →</button>
+    </div>
+  </section>
+
+  <footer>
+    Сделано с заботой о тех, кто только начинает. Удачи в первом промпте 💜
+  </footer>
+
+  <!-- Уведомление о копировании -->
+  <div class="toast" id="toast">Шаблон скопирован</div>
+
+  <script>
+    // ---------- Плавный скролл к секции ----------
+    function scrollTo(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // На мобильном — закрываем меню после клика
+      document.getElementById('navLinks').classList.remove('open');
+    }
+
+    // ---------- Бургер-меню ----------
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+
+    // ---------- Якорные ссылки в меню — плавный скролл ----------
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.addEventListener('click', e => {
+        const href = a.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          e.preventDefault();
+          scrollTo(href.slice(1));
+        }
+      });
+    });
+
+    // ---------- Копирование шаблона промпта ----------
+    function copyTemplate() {
+      const textarea = document.getElementById('promptTemplate');
+      const text = textarea.value;
+
+      // Современный API + запасной вариант для старых браузеров
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(showToast).catch(fallbackCopy.bind(null, textarea));
+      } else {
+        fallbackCopy(textarea);
+      }
+    }
+
+    function fallbackCopy(textarea) {
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        showToast();
+      } catch (e) {
+        alert('Не удалось скопировать. Скопируйте текст вручную.');
+      }
+      window.getSelection().removeAllRanges();
+    }
+
+    // ---------- Сброс шаблона ----------
+    const initialTemplate = document.getElementById('promptTemplate').value;
+    function resetTemplate() {
+      document.getElementById('promptTemplate').value = initialTemplate;
+    }
+
+    // ---------- Toast-уведомление ----------
+    let toastTimer = null;
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      if (message) toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+    }
+
+    // ---------- Чек-лист: прогресс ----------
+    const checkboxes = document.querySelectorAll('#checklistBox input[type="checkbox"]');
+    const bar = document.getElementById('checklistBar');
+    const count = document.getElementById('checklistCount');
+    const total = checkboxes.length;
+
+    function updateChecklist() {
+      const done = [...checkboxes].filter(c => c.checked).length;
+      bar.style.width = (done / total * 100) + '%';
+      count.textContent = done + ' / ' + total;
+    }
+    checkboxes.forEach(c => c.addEventListener('change', updateChecklist));
+    updateChecklist();
+  </script>
+</body>
+</html>
