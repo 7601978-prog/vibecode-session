@@ -491,21 +491,6 @@ footer {
 .resource-link:hover .resource-ext { color: var(--accent); }
 .resource-text { color: var(--text-soft); font-size: 13.5px; line-height: 1.5; }
 
-/* ---------- КОНТАКТЫ ---------- */
-.contact-section { background: var(--bg-soft); }
-.contact-box {
-  max-width: 680px; margin: 0 auto; text-align: center;
-  background: var(--surface); border-radius: var(--radius-lg);
-  padding: 40px 32px; box-shadow: var(--shadow);
-}
-.contact-box h2 { margin-bottom: 12px; }
-.contact-box p { margin-bottom: 22px; }
-.contact-buttons {
-  display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
-  margin-bottom: 18px;
-}
-.contact-note { color: var(--muted); font-size: 13.5px; margin: 0; }
-
 /* ---------- АДАПТИВ ---------- */
 @media (max-width: 860px) {
   .hero-grid,

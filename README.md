@@ -64,7 +64,6 @@ vibecode-session/
         ├── ChecklistSection.vue      ← прогресс хранится в localStorage
         ├── FaqSection.vue            ← аккордеон с частыми вопросами
         ├── ResourcesSection.vue      ← полезные ссылки и сервисы
-        ├── ContactSection.vue        ← блок «Напишите куратору» (placeholders!)
         ├── FinalSection.vue
         ├── AppFooter.vue
         ├── CalloutBox.vue            ← переиспользуемая плашка 💡/📌/⚠️
@@ -120,11 +119,7 @@ import './assets/main.css' // нужны общие CSS-переменные и 
 - **Чек-лист готовности** — интерактивный, прогресс сохраняется в localStorage
 - **FAQ** — аккордеон с 7 типичными вопросами
 - **Ресурсы** — полезные сервисы для новичка (ИИ, сайты, дизайн, вдохновение)
-- **Контакты** — куда писать, если застряли (⚠ placeholder-контакты)
 - **Финальный CTA**
-
-> ⚠️ В `src/components/ContactSection.vue` ссылки на WhatsApp/Telegram/Email —
-> заглушки. Перед публикацией замените на реальные контакты куратора.
 
 ---
 
