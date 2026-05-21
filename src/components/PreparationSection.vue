@@ -7,7 +7,7 @@ const scrollToSection = inject('scrollToSection')
 const { items, doneCount, total, progress } = useChecklist('vc:preparation', [
   { text: 'Завёл аккаунт в ChatGPT или Claude (на любом из двух — этого хватит)' },
   { text: 'Открыл современный браузер: Chrome, Edge, Safari или Firefox' },
-  { text: 'Освободил 30–60 минут спокойного времени — без созвонов' },
+  { text: 'Освободил 3–4 часа спокойного времени — без созвонов' },
   { text: 'Придумал идею: что хочу создать (тема, аудитория, цель)' },
   { text: 'Подготовил рабочее место: ноутбук на зарядке, отключил уведомления' }
 ])

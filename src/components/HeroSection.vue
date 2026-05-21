@@ -31,9 +31,7 @@ const scrollToSection = inject('scrollToSection')
         <div class="chrome"><span></span><span></span><span></span></div>
         <div class="msg user">Создай страницу для обучения сотрудников</div>
         <div class="msg ai">Готово! Добавил 7 шагов, чек-лист и блок с практикой.</div>
-        <div class="msg ai">
-          <span class="typing"><i></i><i></i><i></i></span>
-        </div>
+        <div class="msg ai">✅ Открывайте в браузере — всё работает.</div>
       </div>
     </div>
   </header>

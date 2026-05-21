@@ -3,7 +3,7 @@ const tools = [
   {
     name: 'ChatGPT',
     tag: 'идеи и тексты',
-    logo: 'https://www.google.com/s2/favicons?domain=chatgpt.com&sz=64',
+    logo: 'https://www.google.com/s2/favicons?domain=chat.openai.com&sz=64',
     text: 'Подходит для генерации идей, структуры, текстов и составления промптов.'
   },
   {
@@ -15,7 +15,7 @@ const tools = [
   {
     name: 'Replit',
     tag: 'простые сайты',
-    logo: 'https://www.google.com/s2/favicons?domain=replit.com&sz=64',
+    logo: 'https://www.google.com/s2/favicons?domain=repl.it&sz=64',
     text: 'Создание простых сайтов и веб-приложений прямо в браузере, без установки.'
   },
   {
@@ -27,7 +27,7 @@ const tools = [
   {
     name: 'Cursor',
     tag: 'когда проект растёт',
-    logo: 'https://www.google.com/s2/favicons?domain=cursor.com&sz=64',
+    logo: 'https://www.google.com/s2/favicons?domain=cursor.sh&sz=64',
     text: 'Удобный AI-редактор для работы с кодом, когда проект становится сложнее.'
   }
 ]
