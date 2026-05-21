@@ -88,7 +88,7 @@ const isOpen = (i) => openIndices.value.has(i)
   <section id="steps">
     <div class="container">
       <div class="section-head">
-        <div class="kicker">Пошагово</div>
+        <div class="kicker">Инструкция</div>
         <h2>7 шагов для старта</h2>
         <p>
           Этот алгоритм подходит для любого первого проекта — от инструкции до прототипа сервиса.

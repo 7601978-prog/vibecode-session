@@ -1,8 +1,10 @@
 <script setup>
+import { inject } from 'vue'
 import { useChecklist } from '../composables/useChecklist.js'
 import CalloutBox from './CalloutBox.vue'
 
-const { items, doneCount, total, progress, reset } = useChecklist('vc:preparation', [
+const scrollToSection = inject('scrollToSection')
+const { items, doneCount, total, progress } = useChecklist('vc:preparation', [
   { text: 'Завёл аккаунт в ChatGPT или Claude (на любом из двух — этого хватит)' },
   { text: 'Открыл современный браузер: Chrome, Edge, Safari или Firefox' },
   { text: 'Освободил 30–60 минут спокойного времени — без созвонов' },
@@ -15,7 +17,7 @@ const { items, doneCount, total, progress, reset } = useChecklist('vc:preparatio
   <section id="preparation">
     <div class="container">
       <div class="section-head">
-        <div class="kicker">Раздел 0 · Перед стартом</div>
+        <div class="kicker">Подготовка</div>
         <h2>Что нужно подготовить</h2>
         <p>
           Минимальный набор для первого опыта. Платить ничего не нужно —
@@ -37,8 +39,8 @@ const { items, doneCount, total, progress, reset } = useChecklist('vc:preparatio
         </div>
 
         <div class="checklist-actions">
-          <button class="btn btn-ghost btn-sm" @click="reset">
-            Сбросить прогресс
+          <button class="btn btn-primary btn-sm" @click="scrollToSection('what')">
+            Готов к курсу →
           </button>
         </div>
       </div>

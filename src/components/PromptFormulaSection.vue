@@ -1,4 +1,32 @@
 <script setup>
+import { inject } from 'vue'
+
+const showToast = inject('showToast')
+
+const copyExample = async () => {
+  if (navigator.clipboard && window.isSecureContext) {
+    try {
+      await navigator.clipboard.writeText(example)
+      showToast('Промпт скопирован')
+      return
+    } catch (_) { /* fallback */ }
+  }
+  const ta = document.createElement('textarea')
+  ta.value = example
+  ta.style.position = 'fixed'
+  ta.style.opacity = '0'
+  document.body.appendChild(ta)
+  ta.select()
+  try {
+    document.execCommand('copy')
+    showToast('Промпт скопирован')
+  } catch (_) {
+    alert('Не удалось скопировать. Скопируйте текст вручную.')
+  } finally {
+    document.body.removeChild(ta)
+  }
+}
+
 const formula = [
   { title: 'Что нужно создать.',           desc: 'Сайт, форма, инструкция, бот.' },
   { title: 'Для кого.',                    desc: 'Кто будет это использовать.' },
@@ -40,7 +68,13 @@ const example = `Создай одностраничный сайт для об�
           </li>
         </ol>
 
-        <div class="prompt-example">{{ example }}</div>
+        <div class="prompt-example">
+          <div class="prompt-example-header">
+            <span class="prompt-example-label">Пример хорошего промпта</span>
+            <button class="prompt-copy-btn" @click="copyExample">📋 Скопировать</button>
+          </div>
+          <div class="prompt-example-body">{{ example }}</div>
+        </div>
       </div>
     </div>
   </section>

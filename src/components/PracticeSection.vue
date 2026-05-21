@@ -50,7 +50,7 @@ const resetTemplate = () => { template.value = initialTemplate }
   <section id="practice">
     <div class="container">
       <div class="section-head">
-        <div class="kicker">Ваш ход</div>
+        <div class="kicker">Практика</div>
         <h2>Практика</h2>
         <p>
           Создайте свою первую страницу на одну из тем: инструкция для нового сотрудника,

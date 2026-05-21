@@ -2,7 +2,7 @@
   <section id="what">
     <div class="container">
       <div class="section-head">
-        <div class="kicker">Простыми словами</div>
+        <div class="kicker">Что это</div>
         <h2>Что такое вайбкодинг?</h2>
         <p style="font-size: 17px;">
           Вайбкодинг — это способ создавать сайты, приложения, инструкции, формы и прототипы

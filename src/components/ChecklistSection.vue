@@ -17,7 +17,7 @@ const { items, doneCount, total, progress, reset } = useChecklist('vc:checklist'
   <section id="checklist">
     <div class="container">
       <div class="section-head" style="text-align: center; margin-left: auto; margin-right: auto;">
-        <div class="kicker">Перед запуском</div>
+        <div class="kicker">Чек-лист</div>
         <h2>Чек-лист готовности</h2>
         <p>Пробегитесь по списку перед тем, как показать страницу коллегам.</p>
       </div>

@@ -198,6 +198,11 @@ section:nth-of-type(even) { background: var(--bg-soft); }
   font-weight: 800; margin-bottom: 14px; font-size: 20px;
 }
 .card p { margin: 0; font-size: 14.5px; }
+.card .tool-logo {
+  width: 40px; height: 40px; border-radius: 10px;
+  object-fit: contain; margin-bottom: 12px;
+  background: var(--bg-soft); padding: 4px;
+}
 .card .tool-name { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
 .card .tool-name h3 { margin: 0; }
 .card .tool-tag {
@@ -231,19 +236,25 @@ section:nth-of-type(even) { background: var(--bg-soft); }
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 14px; line-height: 1.7;
   box-shadow: var(--shadow);
-  white-space: pre-wrap;
 }
-.prompt-example::before {
-  content: "Пример хорошего промпта";
-  display: block;
-  color: #aab0ff;
+.prompt-example-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 14px;
   font-family: -apple-system, "Inter", sans-serif;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: .08em;
-  margin-bottom: 12px;
-  font-weight: 700;
 }
+.prompt-example-label {
+  color: #aab0ff; font-size: 12px;
+  text-transform: uppercase; letter-spacing: .08em; font-weight: 700;
+}
+.prompt-copy-btn {
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
+  color: #c8ccff; font-size: 12px; font-weight: 600;
+  padding: 5px 11px; border-radius: 7px; cursor: pointer;
+  font-family: -apple-system, "Inter", sans-serif;
+  transition: background .15s ease;
+}
+.prompt-copy-btn:hover { background: rgba(255,255,255,0.16); color: #fff; }
+.prompt-example-body { white-space: pre-wrap; }
 
 /* ---------- ШАГИ ---------- */
 .steps { display: grid; gap: 14px; }
