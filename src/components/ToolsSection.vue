@@ -29,6 +29,12 @@ const tools = [
     tag: 'когда проект растёт',
     logo: 'https://www.google.com/s2/favicons?domain=cursor.sh&sz=64',
     text: 'Удобный AI-редактор для работы с кодом, когда проект становится сложнее.'
+  },
+  {
+    name: 'NotebookLM',
+    tag: 'работа с документами',
+    logo: 'https://www.google.com/s2/favicons?domain=notebooklm.google.com&sz=64',
+    text: 'Загружаете документы — ИИ отвечает на вопросы, делает выжимки и объясняет содержимое.'
   }
 ]
 </script>
