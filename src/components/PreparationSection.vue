@@ -5,7 +5,7 @@ import CalloutBox from './CalloutBox.vue'
 
 const scrollToSection = inject('scrollToSection')
 const { items, doneCount, total, progress } = useChecklist('vc:preparation', [
-  { text: 'Завёл аккаунт в ChatGPT или Claude (на любом из двух — этого хватит)' },
+  { text: 'Оформил самую недорогую подписку на Claude (Claude Pro — $20/месяц)' },
   { text: 'Открыл современный браузер: Chrome, Edge, Safari или Firefox' },
   { text: 'Освободил 3–4 часа спокойного времени — без созвонов' },
   { text: 'Придумал идею: что хочу создать (тема, аудитория, цель)' },
@@ -20,8 +20,8 @@ const { items, doneCount, total, progress } = useChecklist('vc:preparation', [
         <div class="kicker">Подготовка</div>
         <h2>Что нужно подготовить</h2>
         <p>
-          Минимальный набор для первого опыта. Платить ничего не нужно —
-          у ChatGPT и Claude есть бесплатные планы, которых хватит для старта.
+          Минимальный набор для первого опыта. Для старта достаточно
+          самой недорогой подписки на Claude — она открывает полный доступ к инструменту.
         </p>
       </div>
 
@@ -45,10 +45,10 @@ const { items, doneCount, total, progress } = useChecklist('vc:preparation', [
         </div>
       </div>
 
-      <CalloutBox type="tip" title="Не нужно платить с первого раза">
-        Бесплатных лимитов ChatGPT и Claude хватает на десятки запросов в день —
-        достаточно, чтобы собрать первую страницу или инструкцию. Платный план
-        пригодится позже, когда вы захотите делать больше и быстрее.
+      <CalloutBox type="tip" title="Самая недорогая подписка — Claude Pro">
+        Claude Pro стоит $20 в месяц и даёт полный доступ к модели без ограничений по
+        количеству запросов. Этого хватит, чтобы спокойно работать весь день и собрать
+        первые проекты без пауз.
       </CalloutBox>
     </div>
   </section>
