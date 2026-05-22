@@ -205,6 +205,28 @@ section:nth-of-type(even) { background: var(--bg-soft); }
   color: var(--text-soft); font-size: 14.5px;
 }
 
+/* ---------- GITHUB ИНСТРУКЦИЯ ---------- */
+.git-steps { display: grid; gap: 16px; margin-bottom: 32px; }
+.git-step {
+  background: var(--surface); border-radius: var(--radius);
+  padding: 24px; box-shadow: var(--shadow);
+  display: grid; grid-template-columns: 52px 1fr; gap: 18px; align-items: start;
+}
+.git-num {
+  width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff; font-weight: 800; font-size: 18px;
+  display: flex; align-items: center; justify-content: center;
+}
+.git-body h3 { margin: 0 0 6px; }
+.git-body p  { margin: 0; font-size: 15px; }
+.git-tip {
+  margin-top: 10px; padding: 10px 14px;
+  background: var(--accent-soft); border-radius: 10px;
+  font-size: 14px; color: var(--text-soft); line-height: 1.55;
+}
+.git-cta { display: flex; justify-content: flex-start; }
+
 /* ---------- ФОРМУЛА ПРОМПТА ---------- */
 .formula { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
 .formula-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }

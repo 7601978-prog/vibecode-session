@@ -13,6 +13,7 @@ import PreparationSection from './components/PreparationSection.vue'
 import WhatIsSection from './components/WhatIsSection.vue'
 import WhatToBuildSection from './components/WhatToBuildSection.vue'
 import ToolsSection from './components/ToolsSection.vue'
+import GitSection from './components/GitSection.vue'
 import PromptFormulaSection from './components/PromptFormulaSection.vue'
 import StepsSection from './components/StepsSection.vue'
 import MistakesSection from './components/MistakesSection.vue'
@@ -42,6 +43,7 @@ provide('scrollToSection', scrollToSection)
     <WhatIsSection />
     <WhatToBuildSection />
     <ToolsSection />
+    <GitSection />
     <PromptFormulaSection />
     <StepsSection />
     <MistakesSection />

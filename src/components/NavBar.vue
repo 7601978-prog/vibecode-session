@@ -8,6 +8,7 @@ const links = [
   { id: 'preparation', label: 'Подготовка' },
   { id: 'what',        label: 'Что это' },
   { id: 'tools',       label: 'Инструменты' },
+  { id: 'git',         label: 'GitHub' },
   { id: 'steps',       label: 'Инструкция' },
   { id: 'practice',    label: 'Практика' },
   { id: 'checklist',   label: 'Чек-лист' },
