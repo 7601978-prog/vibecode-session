@@ -225,6 +225,27 @@ section:nth-of-type(even) { background: var(--bg-soft); }
   background: var(--accent-soft); border-radius: 10px;
   font-size: 14px; color: var(--text-soft); line-height: 1.55;
 }
+.git-ai-tip {
+  display: grid; grid-template-columns: 48px 1fr; gap: 16px; align-items: start;
+  background: linear-gradient(135deg, rgba(106,92,255,0.07), rgba(74,139,255,0.07));
+  border: 1px solid var(--accent-soft);
+  border-radius: var(--radius); padding: 22px 24px;
+  margin-bottom: 24px;
+}
+.git-ai-icon {
+  width: 44px; height: 44px; border-radius: 12px;
+  background: var(--accent-soft); font-size: 22px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.git-ai-title { font-weight: 700; font-size: 16px; color: var(--text); margin-bottom: 6px; }
+.git-ai-tip p { margin: 0 0 10px; font-size: 14.5px; }
+.git-ai-example {
+  background: #1c1f3a; color: #e6e7ff;
+  border-radius: 10px; padding: 12px 16px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 14px; line-height: 1.55; font-style: italic;
+}
 .git-cta { display: flex; justify-content: flex-start; }
 
 /* ---------- ФОРМУЛА ПРОМПТА ---------- */

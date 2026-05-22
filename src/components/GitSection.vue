@@ -54,6 +54,20 @@ const steps = [
         </div>
       </div>
 
+      <div class="git-ai-tip">
+        <div class="git-ai-icon">✨</div>
+        <div>
+          <div class="git-ai-title">Можно просто попросить Claude</div>
+          <p>
+            После того как аккаунт создан — Claude умеет создавать репозитории,
+            загружать файлы и настраивать проект за вас. Напишите в чате:
+          </p>
+          <div class="git-ai-example">
+            «Создай репозиторий на GitHub с названием my-project и добавь туда мой HTML-файл»
+          </div>
+        </div>
+      </div>
+
       <div class="git-cta">
         <a href="https://github.com/signup" target="_blank" rel="noopener" class="btn btn-primary">
           Создать аккаунт на GitHub →
