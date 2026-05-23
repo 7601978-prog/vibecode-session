@@ -13,6 +13,7 @@ const links = [
   { id: 'practice',    label: 'Практика' },
   { id: 'checklist',   label: 'Чек-лист' },
   { id: 'faq',         label: 'FAQ' },
+  { id: 'guides',      label: 'Гайды' },
   { id: 'resources',   label: 'Ресурсы' }
 ]
 

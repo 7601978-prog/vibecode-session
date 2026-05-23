@@ -534,6 +534,62 @@ footer {
 .resource-link:hover .resource-ext { color: var(--accent); }
 .resource-text { color: var(--text-soft); font-size: 13.5px; line-height: 1.5; }
 
+/* ---------- ГАЙДЫ ---------- */
+.guides-how {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px; margin-bottom: 36px;
+}
+.guides-how-step {
+  display: flex; align-items: flex-start; gap: 12px;
+  background: var(--surface); border-radius: 14px;
+  padding: 16px; box-shadow: var(--shadow);
+}
+.guides-how-num {
+  flex-shrink: 0; width: 32px; height: 32px; border-radius: 9px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff; font-weight: 700; font-size: 15px;
+  display: flex; align-items: center; justify-content: center;
+}
+.guides-how-text { font-size: 14px; color: var(--text-soft); line-height: 1.5; }
+
+.guides-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 28px; }
+.guide-card {
+  background: var(--surface); border-radius: var(--radius-lg);
+  padding: 28px; box-shadow: var(--shadow);
+  display: flex; flex-direction: column; gap: 12px;
+  border: 1px solid transparent;
+  transition: border-color .2s, box-shadow .2s;
+}
+.guide-card:hover { border-color: var(--accent-soft); box-shadow: var(--shadow-hover); }
+.guide-card-top { display: flex; align-items: center; gap: 14px; }
+.guide-icon {
+  width: 48px; height: 48px; border-radius: 14px;
+  background: var(--accent-soft); font-size: 24px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.guide-meta { display: flex; flex-direction: column; gap: 4px; }
+.guide-tag { font-size: 12px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: .06em; }
+.guide-time { font-size: 12px; color: var(--muted); }
+.guide-card h3 { margin: 0; font-size: 19px; }
+.guide-card p { margin: 0; font-size: 14.5px; color: var(--text-soft); }
+.guide-list { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; }
+.guide-list li { font-size: 14px; color: var(--text-soft); line-height: 1.5; }
+.guide-download-btn { margin-top: auto; align-self: flex-start; text-decoration: none !important; }
+
+.guides-tip {
+  display: grid; grid-template-columns: 44px 1fr; gap: 16px; align-items: start;
+  background: linear-gradient(135deg, rgba(106,92,255,0.07), rgba(74,139,255,0.07));
+  border: 1px solid var(--accent-soft); border-radius: var(--radius);
+  padding: 22px 24px;
+}
+.guides-tip-icon {
+  width: 40px; height: 40px; border-radius: 11px;
+  background: var(--accent-soft); font-size: 20px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.guides-tip-title { font-weight: 700; font-size: 16px; color: var(--text); margin-bottom: 6px; }
+.guides-tip p { margin: 0; font-size: 14.5px; line-height: 1.6; }
+
 /* ---------- АДАПТИВ ---------- */
 @media (max-width: 860px) {
   .formula,
@@ -550,4 +606,5 @@ footer {
   .nav-links.open { display: flex; }
   .nav-burger { display: block; }
   section { padding: 60px 0; }
+  .guides-grid { grid-template-columns: 1fr; }
 }

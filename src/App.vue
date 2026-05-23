@@ -20,6 +20,7 @@ import MistakesSection from './components/MistakesSection.vue'
 import PracticeSection from './components/PracticeSection.vue'
 import ChecklistSection from './components/ChecklistSection.vue'
 import FaqSection from './components/FaqSection.vue'
+import GuidesSection from './components/GuidesSection.vue'
 import ResourcesSection from './components/ResourcesSection.vue'
 import FinalSection from './components/FinalSection.vue'
 import AppFooter from './components/AppFooter.vue'
@@ -50,6 +51,7 @@ provide('scrollToSection', scrollToSection)
     <PracticeSection />
     <ChecklistSection />
     <FaqSection />
+    <GuidesSection />
     <ResourcesSection />
     <FinalSection />
   </main>
